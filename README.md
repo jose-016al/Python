@@ -7,7 +7,9 @@ print(variable)
 ```
 Aprendiendo Python
 
-------
+***
+---
+___
 
 #### .format() da formato a la salida print()
 ```python
