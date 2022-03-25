@@ -90,3 +90,57 @@ C - convertir de libra a euro
 D - convertir de euro a libra 
 
 ---
+
+#### El bucle while
+```python
+opcion = None
+while opcion != "A" and opcion != "B" and opcion != "C":
+    opcion = input("Introduce una opcion ")
+    if opcion != "A" and opcion != "B" and opcion != "C":
+        print("Opcion incorrecta")
+```
+Introduce una opcion hola
+Opcion incorrecta
+Introduce una opcion C
+Has escogido la opcion C
+
+---
+
+#### Las listas se incializan con [], con .append() añadimos objetos a la lista, con .pop() eliminamos objetos de la lista y con in buscamos un objeto en la lista
+```python
+lista = []
+lista.append(1)
+lista.append(2)
+print(lista)
+if 50 in lista:
+    print("Esta en la lista")
+else:
+    print("No esta en la lista")
+lista.pop(1)
+print(lista)
+```
+[1, 2]
+No esta en la lista
+[1]
+
+---
+
+#### El bucle for
+```python
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for item in a:
+    print(item)
+```
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+---
