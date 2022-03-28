@@ -125,6 +125,8 @@ No esta en la lista
 
 ---
 
+## El bucle for 
+
 #### El bucle for recorriendo una lista 
 ```python
 a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -132,18 +134,17 @@ a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for item in a:
     print(item)
 ```
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+>> 1
+>> 2
+>> 3
+>> 4
+>> 5
+>> 6
+>> 7
+>> 8
+>> 9
+>> 10
 
----
 
 #### El bucle for se puede recorrer con un rango 
 ```python
@@ -155,7 +156,7 @@ for item in range(1, 11):
 > 2 x 5 = 10
 > 
 > 3 x 5 = 15
-
+>
 > 4 x 5 = 20
 > 
 > 5 x 5 = 25
@@ -169,5 +170,3 @@ for item in range(1, 11):
 > 9 x 5 = 45
 > 
 > 10 x 5 = 50
-
----
