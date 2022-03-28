@@ -5,18 +5,14 @@
 variable = "Aprendiendo Python"
 print(variable)
 ```
-Aprendiendo Python
-
----
+> Aprendiendo Python
 
 #### .format() da formato a la salida print()
 ```python
 a = "Aprendiendo Python"
 print("La variable a contiene: '{}'".format(a))
 ```
-La variable a contiene: 'Aprendiendo Python'
-
----
+> La variable a contiene: 'Aprendiendo Python'
 
 #### input() es un medio de entrada para que el usuario introduzca datos, los valores introducidos por input() son de tipo String para que sean numeros tenemos que poner el tipo antes del input()
 ```python
@@ -25,10 +21,11 @@ print("La variable 'a' contiene: '{}'".format(a))
 numero = int(input("Introduce un numero: "))
 print("La vriable 'numero' contiene: '{}'".format(numero))
 ```
-Introduce un valor para la variable: Aprendiendo python
-La variable 'a' contiene: 'Aprendiendo python'
-Introduce un numero: 50
-La vriable 'numero' contiene: '50'
+> 
+> Introduce un valor para la variable: Aprendiendo python  
+La variable 'a' contiene: 'Aprendiendo python'  
+Introduce un numero: 50  
+> La vriable 'numero' contiene: '50'
 
 ---
 
@@ -142,21 +139,13 @@ for item in a:
 for item in range(1, 11):
     print("{} x {} = {}".format(item, numero, item * numero))
 ```
-> 1 x 5 = 5
-> 2 x 5 = 10
-> 
-> 3 x 5 = 15
->
-> 4 x 5 = 20
-> 
-> 5 x 5 = 25
-> 
-> 6 x 5 = 30
-> 
-> 7 x 5 = 35
-> 
-> 8 x 5 = 40
-> 
-> 9 x 5 = 45
-> 
-> 10 x 5 = 50
+> 1 x 5 = 5  
+> 2 x 5 = 10  
+> 3 x 5 = 15  
+> 4 x 5 = 20  
+> 5 x 5 = 25  
+> 6 x 5 = 30  
+> 7 x 5 = 35  
+> 8 x 5 = 40  
+> 9 x 5 = 45  
+> 10 x 5 = 50  
