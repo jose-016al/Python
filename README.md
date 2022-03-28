@@ -134,16 +134,7 @@ a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for item in a:
     print(item)
 ```
->> 1
->> 2
->> 3
->> 4
->> 5
->> 6
->> 7
->> 8
->> 9
->> 10
+> 1 2 3 4 5 6 7 8 9 10
 
 
 #### El bucle for se puede recorrer con un rango 
@@ -152,7 +143,6 @@ for item in range(1, 11):
     print("{} x {} = {}".format(item, numero, item * numero))
 ```
 > 1 x 5 = 5
-> 
 > 2 x 5 = 10
 > 
 > 3 x 5 = 15
