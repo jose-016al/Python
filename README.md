@@ -1,9 +1,18 @@
 # Aprendiendo Python
 
+## La funcion print() para la salida de datos
+
 #### print() muestra la salida del texto y variables que contiene
 ```python
 variable = "Aprendiendo Python"
 print(variable)
+```
+> Aprendiendo Python
+
+#### Por defecto la funcion print() nos hace un salto de linea, si queremos evitar esto usamos end="" con esto estamos indicando que siga en la misma linea el siguiente print()
+```python
+print("Aprendiendo ", end="")
+print("Python")
 ```
 > Aprendiendo Python
 
@@ -13,6 +22,8 @@ a = "Aprendiendo Python"
 print("La variable a contiene: '{}'".format(a))
 ```
 > La variable a contiene: 'Aprendiendo Python'
+
+## La funcion input() para la entrada de datos
 
 #### input() es un medio de entrada para que el usuario introduzca datos, los valores introducidos por input() son de tipo String para que sean numeros tenemos que poner el tipo antes del input()
 ```python
@@ -24,44 +35,7 @@ print("La vriable 'numero' contiene: '{}'".format(numero))
 > Introduce un valor para la variable: Aprendiendo python  
 La variable 'a' contiene: 'Aprendiendo python'  
 Introduce un numero: 50  
-La vriable 'numero' contiene: '50'
-
-#### Con la funcion random obtenemos numeros aleatorios 
-```python
-import random 
-aleatorio = random.randint(1, 10)
-print("El numero aleatorio generado ha sido: {}".format(aleatorio))
-```
-> El numero aleatorio generado ha sido: 10
-
-#### len() nos muestra el tamaño de la variable que pasamos por parametro
-```python
-a = "Aprendiendo python"
-print("El tamaño de la variable 'a' es: {}".format(len(a)))
-```
-> El tamaño de la variable 'a' es: 18
-
-#### Usando len() para crear una subrayado automatico
-```python
-titulo = "Aprendiendo python"
-print(titulo + "\n" + "-" * len(titulo) + "\n")
-```
-> Aprendiendo python  
-------------------
-
-## Los condicionales: if, elif y else
-
-#### if y else 
-```python
-if numero > 1 and numero < 10:
-    if numero == aleatorio:
-        print("Enhorabuena has ganado")
-    else:
-        print("Vaya... Has perdido, el numero correcto era: {}".format(aleatorio))
-else:
-    print("ERROR, el numero tiene que estar entre 1 y 10")
-```
-> Vaya... Has perdido, el numero correcto era: 7
+La vriable 'numero' contiene: '50' 
 
 ## Como hacer un menu en python
 
@@ -78,6 +52,20 @@ A - convertir de dolar a euro
 B - convertir de euro a dolar  
 C - convertir de libra a euro  
 D - convertir de euro a libra  
+
+## Los condicionales: if, elif y else
+
+#### if y else 
+```python
+if numero > 1 and numero < 10:
+    if numero == aleatorio:
+        print("Enhorabuena has ganado")
+    else:
+        print("Vaya... Has perdido, el numero correcto era: {}".format(aleatorio))
+else:
+    print("ERROR, el numero tiene que estar entre 1 y 10")
+```
+> Vaya... Has perdido, el numero correcto era: 7
 
 ## El bucle while
 
@@ -150,3 +138,42 @@ for numero in lista_numeros[1:5]:
 2  
 3  
 4  
+
+## Algunas funciones de python
+
+#### Con la funcion random obtenemos numeros aleatorios 
+```python
+import random 
+aleatorio = random.randint(1, 10)
+print("El numero aleatorio generado ha sido: {}".format(aleatorio))
+```
+> El numero aleatorio generado ha sido: 10
+
+#### len() nos muestra el tamaño de la variable que pasamos por parametro
+```python
+a = "Aprendiendo python"
+print("El tamaño de la variable 'a' es: {}".format(len(a)))
+```
+> El tamaño de la variable 'a' es: 18
+
+#### Usando len() para crear una subrayado automatico
+```python
+titulo = "Aprendiendo python"
+print(titulo + "\n" + "-" * len(titulo) + "\n")
+```
+> Aprendiendo python  
+> ------------------
+
+#### Con la funcion os.system(clear) limpiamos la pantalla, en windows usamos os.system(cls)
+```python
+import os 
+contador = 0
+while contador != 5:
+    print("Aprendiendo python")
+    if contador > 0 and contador < 5:
+        contador+=1
+    else:
+        os.system("clear")
+```
+Nos muestra solo una linea en vez de 5 ya que la pantalla se va borrando  
+> Aprendiendo python 
