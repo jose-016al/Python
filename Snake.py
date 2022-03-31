@@ -2,35 +2,46 @@
 import readchar as readchar
 import os
 import random
+
     # CONSTANTES
 POS_Y = 1
 POS_X = 0   
-MAP_WIDTH = 20  # numero de filas (ancho) del mapa , coordenadas x
-MAP_HEIGHT = 15 # numero de columnas (alto) del mapa, coordenadas y
-NUM_OF_MAP_OBJECTS = 11
-    # VARIABLES
-my_position = [3, 1]
-tail_lenght = 0
-tail = []
-map_objects = [] # obstaculos para el jugador
-end_game = False
+MAP_WIDTH = 20          # numero de filas (ancho) del mapa , coordenadas x
+MAP_HEIGHT = 15         # numero de columnas (alto) del mapa, coordenadas y
+NUM_OF_MAP_OBJECTS = 11 # numero de comida para el jugador
 
-    # generate random object on the map
-while len(map_objects) < NUM_OF_MAP_OBJECTS:
-    new_position = [random.randint(0, MAP_WIDTH), random.randint(0, MAP_HEIGHT)]
-    if new_position not in map_objects and new_position != my_position:
-        map_objects.append(new_position)
+    # VARIABLES
+my_position = [3, 1] # posicion del jugador 
+tail_lenght = 0      # tamaño de la serpiente 
+tail = []            # con esta lista se genera la serpiente con las pocisiones donde ha pasado el jugador
+map_objects = []     # comida para el jugador
+
+end_game = False    # finaliza el juego
+died = False         # el jugador ha muerto
 
     # PROGRAMA main loop
-# creamos el mapa que representara el laberinto
-while not end_game:
+while not end_game: # mientras la variable end_game siga siendo False
+
+    os.system("clear")
+
+    # generando comida random por el mapa
+    while len(map_objects) < NUM_OF_MAP_OBJECTS:
+        new_position = [random.randint(0, MAP_WIDTH), random.randint(0, MAP_HEIGHT)]
+
+        if new_position not in map_objects and new_position != my_position:
+            map_objects.append(new_position)
+
+    # creamos el mapa (tabla) que representara el laberinto
     print("+" + "-" * MAP_WIDTH * 3 + "+")
+
     for coordinate_y in range(MAP_HEIGHT):
         print("|", end="")
+
         for coordinate_x in range(MAP_WIDTH):
             char_to_draw = " "
             object_in_cell = None 
             tail_in_cell = None
+
             for map_object in map_objects:
                 if map_object[POS_X] == coordinate_x and map_object[POS_Y] == coordinate_y:
                     char_to_draw = "*"    
@@ -43,15 +54,18 @@ while not end_game:
             
             if my_position[POS_X] == coordinate_x and my_position[POS_Y] == coordinate_y:
                 char_to_draw = "@" # este seria el jugador 
+
                 if object_in_cell:
                     map_objects.remove(object_in_cell)
                     tail_lenght += 1
+
                 if tail_in_cell:
-                    print("Has muerto")
                     end_game = True
+                    died = True
             
             print(" {} ".format(char_to_draw), end="")
         print("|")
+
     print("+" + "-" * MAP_WIDTH * 3 + "+")
 
     # preguntamos al usuario donde se quiere mover
@@ -82,5 +96,5 @@ while not end_game:
     elif direction == "q":
         end_game = True
 
-    os.system("clear")
-
+if died:
+    print("Has muerto")
