@@ -110,6 +110,14 @@ a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for item in a:
     print(item)
 ```
+Tambien se puede crear un for en una sola linea
+```python
+if item_a_guardar in [a for a in lista_compra]:
+    print("El producto {} ya esta en la lista".format(item_a_guardar))
+else: 
+    lista_compra.append(item_a_guardar)
+
+```
 > 1 2 3 4 5 6 7 8 9 10
 
 #### El bucle for se puede recorrer con un rango 
@@ -164,6 +172,16 @@ print(titulo + "\n" + "-" * len(titulo) + "\n")
 > Aprendiendo python  
 > ------------------
 
+#### Podemos convertir a minusculas '.lower()' o mayusculas
+```python
+titulo = "Aprendiendo python"
+print(titulo + "\n" + "-" * len(titulo) + "\n")
+```
+> if item_a_guardar.lower() in [a.lower() for a in lista_compra]:  
+    print("El producto {} ya esta en la lista".format(item_a_guardar))  
+else:   
+    lista_compra.append(item_a_guardar)  
+
 #### Con la funcion os.system(clear) limpiamos la pantalla, en windows usamos os.system(cls)
 ```python
 import os 
@@ -177,3 +195,58 @@ while contador != 5:
 ```
 Nos muestra solo una linea en vez de 5 ya que la pantalla se va borrando  
 > Aprendiendo python 
+
+## Nuestras propias funciones
+
+#### Con def creamos nuestra funcion y podemos pasar parametros en los parentesis
+```python
+def saludar(nombre):
+    print("Hola {}".format(nombre))
+
+saludar("Jose")
+```
+> Hola Jose  
+
+#### Podemos pedirle a la funcion que nos devuelva un valor
+```python
+def largo_frase(frase):
+    largo = 0
+    for i in frase:
+        largo += 1
+    return largo
+
+num_letras = largo_frase("Aprendiendo python")
+print("El numero de letras en la frase es: {}".format(num_letras))
+```
+> El numero de letras en la frase es: 18  
+
+## La programacion funcional
+
+#### La programacion funcional consiste en dividir nuestro codigo en diversos metodos o fucniones, y una vez terminado en una funcion main() volcarlo todo, y por ultimo haremos una condicion 
+'if __name__ == "__main__"'
+```python
+def suma(n1, n2):
+    resultado = n1 + n2
+    return resultado
+
+def main():
+    print(suma(2, 2))
+
+if __name__ == "__main__":
+    main()
+```
+> 4  
+
+## Trabajando con ficheros 
+
+#### con open() abrimos un ficero indicamos el nombre y el modo en el que se abre, w es escritura, r es lectura. Hay dos formas de hacer esto
+```python
+a = open("fichero.txt", "w")
+a.write("\n".join(lista_compra))
+a.close
+```
+```python
+with open("fichero.txt", "w") as mi_fichero:
+    mi_fichero.write("\n".join(lista_compra))
+```
+> Se crea el fichero con lo que le pasemos con .write 
