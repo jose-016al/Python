@@ -1,16 +1,35 @@
-titulo = "Programa lista de la compra"
-print("\n" + titulo + "\n" + "-" * len(titulo) + "\n")
+    # CONSTANTES
+SALIDA = "SALIR"
+LISTA = "LISTA"
 
-lista = []
-opcion = None
-while opcion != "Q":
-    opcion = input("Que desea comprar (Q salir del programa): ")
-    if opcion in lista:
-        print("{} ya esta en la lista \n".format(opcion))
-    else:
-        if input("Estas seguro de que quieres añadir {} (s/n): ".format(opcion)) == "s":
-            lista.append(opcion)
-            print("\n")
+def pregunta_usuario():
+    return input("Introduce un producto [{} para salir]: ".format(SALIDA))
 
-print("\n La lista de la compra es:")
-print(lista)
+def guardar_lista(lista_compra):
+    nombre = input("Como quieres llamar el archivo: ")
+    with open(nombre + ".txt", "w") as mi_fichero:
+        mi_fichero.write("\n".join(lista_compra))
+
+def guardar_item_lista(lista_compra, item_a_guardar):
+    if item_a_guardar.lower() in [a.lower() for a in lista_compra]:
+        print("El producto {} ya esta en la lista".format(item_a_guardar))
+    else: 
+        lista_compra.append(item_a_guardar)
+
+def main():
+
+        # VARIABLES
+    lista_compra = []
+
+        # main loop
+    input_usuario = pregunta_usuario()
+
+    while input_usuario != "SALIR":
+        guardar_item_lista(lista_compra, input_usuario)
+        print("\n".join(lista_compra))
+        input_usuario = pregunta_usuario()
+
+    guardar_lista(lista_compra)
+
+if __name__ == "__main__":
+    main()
