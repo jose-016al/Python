@@ -172,15 +172,13 @@ print(titulo + "\n" + "-" * len(titulo) + "\n")
 > Aprendiendo python  
 > ------------------
 
-#### Podemos convertir a minusculas '.lower()' o mayusculas
+#### Podemos convertir a minusculas '.lower()' o mayusculas '.upper()'
 ```python
-titulo = "Aprendiendo python"
-print(titulo + "\n" + "-" * len(titulo) + "\n")
-```
-> if item_a_guardar.lower() in [a.lower() for a in lista_compra]:  
+if item_a_guardar.lower() in [a.lower() for a in lista_compra]:  
     print("El producto {} ya esta en la lista".format(item_a_guardar))  
 else:   
     lista_compra.append(item_a_guardar)  
+```
 
 #### Con la funcion os.system(clear) limpiamos la pantalla, en windows usamos os.system(cls)
 ```python
