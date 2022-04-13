@@ -194,6 +194,34 @@ while contador != 5:
 Nos muestra solo una linea en vez de 5 ya que la pantalla se va borrando  
 > Aprendiendo python 
 
+#### Con os.getlogin() nos muestra el usuario del sistema
+```python
+import os
+
+def main():
+    open("LEEME.txt", "a")
+    print(os.getlogin())
+
+if __name__ == "__main__":
+    main()
+```
+> jose
+
+#### El funcionamiento de sleep() para esperar un tiempo antes de hacer algo
+```python
+from time import sleep
+from random import randrange
+
+def main():
+
+    numero_horas = randrange(1, 4)
+    numero_minutos = randrange(0, 60)
+    print("Durmiendo {} horas, {} minutos".format(numero_horas, numero_minutos))
+    sleep(numero_horas * 60 * 60)
+    sleep(numero_minutos * 60)
+```
+> Durmiendo 1 horas, 14 minutos  
+
 ## Nuestras propias funciones
 
 #### Con def creamos nuestra funcion y podemos pasar parametros en los parentesis
@@ -237,7 +265,7 @@ if __name__ == "__main__":
 
 ## Trabajando con ficheros 
 
-#### con open() abrimos un ficero indicamos el nombre y el modo en el que se abre, w es escritura, r es lectura. Hay dos formas de hacer esto
+#### Con open() abrimos un ficero indicamos el nombre y el modo en el que se abre, 'w' es escritura crea el archivo si no existe o lo reescribe, con 'a' se van añadiendo lo que queramos, 'r' es lectura, usamos write() para escribir en el fichero. Hay dos formas de hacer esto
 ```python
 a = open("fichero.txt", "w")
 a.write("\n".join(lista_compra))
@@ -247,4 +275,53 @@ a.close
 with open("fichero.txt", "w") as mi_fichero:
     mi_fichero.write("\n".join(lista_compra))
 ```
-> Se crea el fichero con lo que le pasemos con .write 
+> Se crea el fichero con lo que le pasemos con .write  
+
+#### Para leer ficheros pasamos por parametro en el open() r para indicar que lo abra en modo lectura
+```python
+lista_compra = []
+
+if input("¿Te interesa cargar la ultima lista de la compra? [si/no] ") == "si":
+    with open("Lista compra.txt", "r") as a:
+        lista_compra = a.read().split("\n")
+```
+> En este caso metemos cada palabra en una posicion de la lista  
+
+#### Para crear un fichero en una ruta determinada
+```python
+import os
+
+def main():
+    desktop = "/home/" + os.getlogin() + "/"
+    with open(desktop + "LEEME.txt", "w") as mi_fichero:
+        mi_fichero.write("Soy un haxcker")
+
+if __name__ == "__main__":
+    main()
+```
+> Se crea el fichero
+
+## Gestionando excepciones en python
+
+#### Con try ponemos el codigo a ejecutar y con except ponemos la escepcion que se lanzaria y un mensaje en caso de que se cumpla
+```python
+lista_compra = []
+
+if input("¿Te interesa cargar la ultima lista de la compra? [si/no] ") == "si":
+    try:
+        with open(ARCHIVO_LISTA, "r") as a:
+            lista_compra = a.read().split("\n")
+    except FileNotFoundError:
+        print("No existe el fichero")
+```
+> No existe el fichero
+
+## Las interfaces graficas en python
+
+#### Instalamos PySimpleGui y con el atributo .Window creamos una ventana con un titulo un lista dentro de otra lista y un tamaño, con read() lo lanzamos
+```python
+import PySimpleGUI as sg
+
+window = sg.Window("Titulo", [[]], margins=(100, 100)).read()
+```
+> 
